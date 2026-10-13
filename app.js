@@ -109,35 +109,43 @@ dialog.addEventListener("click", event => {
 });
 
 const contactForm = $("#contactForm");
+
 contactForm.addEventListener("submit", async event => {
   event.preventDefault();
+
   const feedback = $("#formFeedback");
   const submit = $(".form-submit", contactForm);
-  const payload = Object.fromEntries(new FormData(contactForm).entries());
+  const payload = new FormData(contactForm);
+
   submit.disabled = true;
   submit.style.opacity = ".65";
   feedback.textContent = "A enviar a mensagem...";
+
   try {
-    const response = await fetch("/api/contact", {
+    const response = await fetch("https://formspree.io/f/xyekndqk", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
+      body: payload,
+      headers: {
+        "Accept": "application/json"
+      }
     });
+
     const result = await response.json();
-    if (!response.ok) throw new Error(result.message || "Não foi possível enviar.");
-    feedback.textContent = result.message;
+
+    if (!response.ok) {
+      throw new Error(result.errors?.[0]?.message || "Não foi possível enviar a mensagem.");
+    }
+
+    feedback.textContent = "Mensagem enviada com sucesso! Obrigado por contactar a UniJ.";
     contactForm.reset();
+
   } catch (error) {
-    // If opened as a static site or hosted without the Node API, offer a WhatsApp fallback.
-    const text = `Olá, UniJ!%0A%0ANome: ${encodeURIComponent(payload.name)}%0AE-mail: ${encodeURIComponent(payload.email)}%0AAssunto: ${encodeURIComponent(payload.subject || "Informação geral")}%0AMensagem: ${encodeURIComponent(payload.message)}`;
-    feedback.textContent = "O formulário não está ligado ao servidor. Vamos abrir o WhatsApp para enviar a mensagem.";
-    window.setTimeout(() => window.open(`https://wa.me/244925039977?text=${text}`, "_blank", "noopener"), 500);
+    feedback.textContent = error.message || "Ocorreu um erro. Verifica a tua ligação à Internet e tenta novamente.";
   } finally {
     submit.disabled = false;
     submit.style.opacity = "1";
   }
 });
-
 // Highlight the current section in the navigation as the visitor scrolls.
 const sections = $$("main section[id]");
 if ("IntersectionObserver" in window) {
