@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#b5122b">
+
+    <meta name="description"
+          content="Estante de livros da UniJ: obras jurídicas, legislação e materiais académicos organizados por categorias.">
+
+    <title>Estante de Livros | UniJ</title>
+
+    <link rel="icon" href="./unij-logo.jpg">
+    <link rel="stylesheet" href="./styles.css">
+
+    <style>
+        .shelf-hero {
+            padding: 65px 0 45px;
+            background: #f8f5f3;
+            border-bottom: 1px solid #e8e0dc;
+        }
+
+        .shelf-hero h1 {
+            margin: 15px 0;
+        }
+
+        .shelf-hero p {
+            max-width: 720px;
+        }
+
+        .shelf-main {
+            padding: 45px 0 75px;
+        }
+
+        .shelf-toolbar {
+            margin-bottom: 35px;
+        }
+
+        .shelf-search {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 15px 17px;
+            border: 1px solid #dedede;
+            border-radius: 8px;
+            font: inherit;
+            background: #fff;
+        }
+
+        .shelf-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .shelf-filter {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            background: #fff;
+            cursor: pointer;
+            font: inherit;
+        }
+
+        .shelf-filter.active {
+            color: #fff;
+            background: #b5122b;
+            border-color: #b5122b;
+        }
+
+        .shelf-category {
+            margin-bottom: 45px;
+        }
+
+        .shelf-category > h2 {
+            padding-bottom: 12px;
+            margin-bottom: 23px;
+            border-bottom: 2px solid #b5122b;
+        }
+
+        .shelf-grid {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fill,
+                minmax(min(100%, 230px), 1fr)
+            );
+            gap: 22px;
+        }
+
+        .shelf-book {
+            overflow: hidden;
+            background: #fff;
+            border: 1px solid #e8e3e0;
+            border-radius: 10px;
+        }
+
+        .shelf-book .book-cover {
+            min-height: 180px;
+        }
+
+        .shelf-book .book-info {
+            padding: 20px;
+        }
+
+        .shelf-book h3 {
+            margin: 9px 0;
+        }
+
+        .shelf-book p {
+            margin-bottom: 18px;
+        }
+
+        .shelf-book .book-download {
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        .shelf-book[hidden],
+        .shelf-category[hidden],
+        #shelfEmpty[hidden] {
+            display: none !important;
+        }
+
+        #shelfEmpty {
+            padding: 35px 15px;
+            text-align: center;
+        }
+
+        .shelf-count {
+            margin: 15px 0;
+            font-size: .95rem;
+        }
+
+        .shelf-back {
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .shelf-hero {
+                padding: 40px 0 30px;
+            }
+
+            .shelf-filters {
+                gap: 8px;
+            }
+
+            .shelf-filter {
+                padding: 9px 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topline">
+        <div class="container topline-inner">
+            <span>Conhecimento jurídico ao alcance de todos.</span>
+
+            <div class="top-social">
+                <a href="https://www.facebook.com/profile.php?id=100071372426984"
+                   target="_blank" rel="noopener">Facebook</a>
+
+                <a href="https://www.instagram.com/uni.juridico"
+                   target="_blank" rel="noopener">Instagram</a>
+
+                <a href="https://wa.me/244925039977"
+                   target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="site-header">
+        <div class="container header-inner">
+
+            <a class="brand" href="./index.html">
+                <img src="./unij-logo.jpg"
+                     alt="Logótipo UniJ">
+
+                <span class="brand-copy">
+                    <strong>Uni<span>J</span></strong>
+                    <small>UNIVERSO JURÍDICO</small>
+                </span>
+            </a>
+
+            <a class="button button-outline shelf-back"
+               href="./index.html#biblioteca">
+                ← VOLTAR À PÁGINA PRINCIPAL
+            </a>
+
+        </div>
+    </header>
+
+    <section class="shelf-hero">
+        <div class="container">
+
+            <div class="eyebrow">
+                <span class="eyebrow-line"></span>
+                BIBLIOTECA DIGITAL UNIJ
+            </div>
+
+            <h1>Estante de <em>Livros.</em></h1>
+
+            <p>
+                Explore a colecção de livros, códigos, legislação
+                e materiais de estudo. Pesquise por título, autor,
+                tema ou palavra-chave e encontre facilmente a obra
+                de que necessita.
+            </p>
+
+        </div>
+    </section>
+
+    <main class="shelf-main">
+        <div class="container">
+
+            <!-- PESQUISA E FILTROS -->
+            <div class="shelf-toolbar">
+
+                <label for="shelfSearch">
+                    Pesquisar na biblioteca
+                </label>
+
+                <input
+                    type="search"
+                    id="shelfSearch"
+                    class="shelf-search"
+                    placeholder="Título, autor, tema ou palavra-chave..."
+                    autocomplete="off"
+                >
+
+                <div class="shelf-filters"
+                     role="group"
+                     aria-label="Categorias dos livros">
+
+                    <button type="button"
+                            class="shelf-filter active"
+                            data-category="todos"
+                            aria-pressed="true">
+                        Todas as categorias
+                    </button>
+
+                    <button type="button"
+                            class="shelf-filter"
+                            data-category="penal"
+                            aria-pressed="false">
+                        Direito Penal
+                    </button>
+
+                    <button type="button"
+                            class="shelf-filter"
+                            data-category="civil"
+                            aria-pressed="false">
+                        Direito Civil
+                    </button>
+
+                    <button type="button"
+                            class="shelf-filter"
+                            data-category="constitucional"
+                            aria-pressed="false">
+                        Constitucional
+                    </button>
+
+                    <button type="button"
+                            class="shelf-filter"
+                            data-category="academico"
+                            aria-pressed="false">
+                        Académico
+                    </button>
+
+                </div>
+
+                <p id="shelfCount"
+                   class="shelf-count"
+                   aria-live="polite"></p>
+
+            </div>
+
+            <!-- COLECÇÃO COMPLETA -->
+            <div id="shelfBooks">
+
+                <!-- DIREITO PENAL -->
+                <section class="shelf-category"
+                         data-section-category="penal">
+
+                    <h2>DIREITO PENAL</h2>
+
+                    <div class="shelf-grid">
+
+                        <article class="shelf-book"
+                                 data-category="penal"
+                                 data-search="direito penal código penal legislação angolana">
+
+                            <div class="book-cover cover-penal">
+                                <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+                                <strong>DIREITO<br>PENAL</strong>
+                                <small>ESTUDOS JURÍDICOS</small>
+                            </div>
+
+                            <div class="book-info">
+                                <span class="book-category">DIREITO PENAL</span>
+                                <h3>Direito Penal</h3>
+                                <p>Material de estudo e consulta jurídica.</p>
+
+                                <a class="book-download"
+                                   href="./livros/direito-penal.pdf"
+                                   download>
+                                    Descarregar PDF ↓
+                                </a>
+                            </div>
+
+                        </article>
+
+                        <article class="shelf-book"
+                                 data-category="penal"
+                                 data-search="código penal angolano crimes penas legislação">
+
+                            <div class="book-cover cover-penal">
+                                <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+                                <strong>CÓDIGO<br>PENAL</strong>
+                                <small>LEGISLAÇÃO</small>
+                            </div>
+
+                            <div class="book-info">
+                                <span class="book-category">DIREITO PENAL</span>
+                                <h3>Código Penal</h3>
+                                <p>Legislação penal para consulta.</p>
+
+                                <a class="book-download"
+                                   href="./livros/codigo-penal.pdf"
+                                   download>
+                                    Descarregar PDF ↓
+                                </a>
+                            </div>
+
+                        </article>
+
+                        <article class="shelf-book"
+                                 data-category="penal"
+                                 data-search="processo penal investigação criminal procedimento">
+
+                            <div class="book-cover cover-penal">
+                                <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+                                <strong>PROCESSO<br>PENAL</strong>
+                                <small>ESTUDOS JURÍDICOS</small>
+                            </div>
+
+                            <div class="book-info">
+                                <span class="book-category">DIREITO PENAL</span>
+                                <h3>Processo Penal</h3>
+                                <p>Material de consulta sobre o processo penal.</p>
+
+                                <a class="book-download"
+                                   href="./livros/processo-penal.pdf"
+                                   download>
+                                    Descarregar PDF ↓
+                                </a>
+                            </div>
+
+                        </article>
+
+                    </div>
+                </section>
+
+                <!-- DIREITO CIVIL -->
+                <section class="shelf-category"
+                         data-section-category="civil">
+
+                    <h2>DIREITO CIVIL</h2>
+
+                    <div class="shelf-grid">
+
+                        <article class="shelf-book"
+                                 data-category="civil"
+                                 data-search="direito civil código civil obrigações contratos">
+
+                            <div class="book-cover cover-civil">
+                                <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+                                <strong>DIREITO<br>CIVIL</strong>
+                                <small>ESTUDOS JURÍDICOS</small>
+                            </div>
+
+                            <div class="book-info">
+                                <span class="book-category">DIREITO CIVIL</span>
+                                <h3>Direito Civil</h3>
+                                <p>Conteúdos para aprofundamento académico.</p>
+
+                                <a class="book-download"
+                                   href="./livros/bancario.pdf"
+                                   download>
+                                    Descarregar PDF ↓
+                                </a>
+                            </div>
+
+                        </article>
+
+                        <article class="shelf-book"
+                                 data-category="civil"
+                                 data-search="direito das obrigações contratos responsabilidade civil">
+
+                            <div class="book-cover cover-civil">
+                                <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+                                <strong>OBRIGAÇÕES</strong>
+                                <small>DIREITO CIVIL</small>
+                            </div>
+
+                            <div class="book-info">
+                                <span class="book-category">DIREITO CIVIL</span>
+                                <h3>Direito das Obrigações</h3>
+                                <p>Estudo dos contratos e das obrigações.</p>
+
+                                <a class="book-download"
+                                   href="./livros/obrigacoes.pdf"
+                                   download>
+                                    Descarregar PDF ↓
+                                </a>
+                            </div>
+
+                        </article>
+
+                        <article class="shelf-book"
+                                 data-category="civil"
+                                 data-search="direito da família casamento filiação família">
+
+                            <div class="book-cover cover-civil">
+                                <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+                                <strong>DIREITO<br>DA FAMÍLIA</strong>
+                                <small>ESTUDOS JURÍDICOS</small>
+                            </div>
+
+                            <div class="book-info">
+                                <span class="book-category">DIREITO CIVIL</span>
+                                <h3>Direito da Família</h3>
+                                <p>Introdução às relações familiares.</p>
+
+                                <a class="book-download"
+                                   href="./livros/direito-familia.pdf"
+                                   download>
+                                    Descarregar PDF ↓
+                                </a>
+                            </div>
+
+                        </article>
+
+                    </div>
+                </section>
+
+                <!-- DIREITO CONSTITUCIONAL -->
+                <section class="shelf-category"
+                         data-section-category="constitucional">
+
+                    <h2>DIREITO CONSTITUCIONAL</h2>
+
+                    <div class="shelf-grid">
+
+                        <article class="shelf-book"
+                                 data-category="constitucional"
+                                 data-search="direito constitucional angolano direitos fundamentais estado">
+
+                            <div class="book-cover cover-constitucional">
+                                <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+                                <strong>DIREITO<br>CONSTITUCIONAL</strong>
+                                <small>ANGOLA</small>
+                            </div>
+
+                            <div class="book-info">
+                                <span class="book-category">CONSTITUCIONAL</span>
+                                <h3>Direito Constitucional</h3>
+                                <p>Constituição, direitos fundamentais e Estado.</p>
+
+                                <a class="book-download"
+                                   href="./livros/Recursos.pdf"
+                                   download>
+                                    Descarregar PDF ↓
+                                </a>
+                            </div>
+
+                        </article>
+
+                        <article class="shelf-book"
+                                 data-category="constitucional"
+                                 data-search="constituição da república de angola direitos liberdades garantias">
+
+                            <div class="book-cover cover-constitucional">
+                                <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+                                <strong>CONSTITUIÇÃO</strong>
+                                <small>REPÚBLICA DE ANGOLA</small>
+                            </div>
+
+                            <div class="book-info">
+                                <span class="book-category">CONSTITUCIONAL</span>
+                                <h3>Constituição da República</h3>
+                                <p>Consulta da Constituição e dos direitos fundamentais.</p>
+
+                                <a class="book-download"
+                                   href="./livros/constituicao.pdf"
+                                   download>
+                                    Descarregar PDF ↓
+                                </a>
+                            </div>
+
+                        </article>
+
+                    </div>
+                </section>
+
+                <!-- MATERIAIS ACADÉMICOS -->
+                <section class="shelf-category"
+                         data-section-category="academico">
+
+                    <h2>MATERIAIS ACADÉMICOS</h2>
+
+                    <div class="shelf-grid">
+
+                        <article class="shelf-book"
+                                 data-category="academico"
+                                 data-search="metodologia investigação científica trabalhos académicos bibliografia">
+
+                            <div class="book-cover cover-academico">
+                                <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+                                <strong>INVESTIGAÇÃO</strong>
+                                <small>METODOLOGIA</small>
+                            </div>
+
+                            <div class="book-info">
+                                <span class="book-category">ACADÉMICO</span>
+                                <h3>Metodologia de Investigação</h3>
+                                <p>Orientações para trabalhos científicos.</p>
+
+                                <a class="book-download"
+                                   href="./livros/metodologia.pdf"
+                                   download>
+                                    Descarregar PDF ↓
+                                </a>
+                            </div>
+
+                        </article>
+
+                        <article class="shelf-book"
+                                 data-category="academico"
+                                 data-search="redação redacção jurídica escrita jurídica linguagem jurídica">
+
+                            <div class="book-cover cover-academico">
+                                <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+                                <strong>ESCRITA<br>JURÍDICA</strong>
+                                <small>FORMAÇÃO ACADÉMICA</small>
+                            </div>
+
+                            <div class="book-info">
+                                <span class="book-category">ACADÉMICO</span>
+                                <h3>Redacção Jurídica</h3>
+                                <p>Orientações para melhorar a escrita jurídica.</p>
+
+                                <a class="book-download"
+                                   href="./livros/redacao-juridica.pdf"
+                                   download>
+                                    Descarregar PDF ↓
+                                </a>
+                            </div>
+
+                        </article>
+
+                    </div>
+                </section>
+
+            </div>
+
+            <p id="shelfEmpty" hidden>
+                Não foram encontrados livros com os critérios seleccionados.
+            </p>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-main">
+
+            <a class="brand footer-brand" href="./index.html">
+                <img src="./unij-logo.jpg" alt="Logótipo UniJ">
+
+                <span class="brand-copy">
+                    <strong>Uni<span>J</span></strong>
+                    <small>UNIVERSO JURÍDICO</small>
+                </span>
+            </a>
+
+            <p>Conhecimento jurídico para uma cidadania mais consciente.</p>
+
+            <a class="back-top" href="#">Voltar ao topo ↑</a>
+
+        </div>
+
+        <div class="container footer-bottom">
+            <span>© <span id="year"></span> UniJ — Universo Jurídico.</span>
+            <span>Conhecimento com responsabilidade.</span>
+        </div>
+    </footer>
+
+    <script src="./estante.js"></script>
+
+</body>
+      </html>
