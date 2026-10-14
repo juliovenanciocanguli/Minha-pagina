@@ -204,3 +204,6 @@
     min-height: 220px;
   }
 }
+.book-card[hidden] {
+    display: none !important;
+}
