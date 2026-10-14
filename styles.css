@@ -207,3 +207,32 @@
 .book-card[hidden] {
     display: none !important;
 }
+/* BIBLIOTECA DIGITAL UNIJ */
+
+.book-card[hidden],
+#bookNoResults[hidden] {
+    display: none !important;
+}
+
+.library-more {
+    margin-top: 35px;
+    text-align: center;
+}
+
+.library-more p {
+    margin-bottom: 18px;
+}
+
+.library-more .button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+@media (max-width: 600px) {
+    .library-more .button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    }
