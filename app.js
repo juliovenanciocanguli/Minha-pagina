@@ -157,3 +157,83 @@ if ("IntersectionObserver" in window) {
   }, { rootMargin: "-35% 0px -55% 0px" });
   sections.forEach(section => observer.observe(section));
 }
+// ====================================
+// BIBLIOTECA DIGITAL UNIJ
+// Pesquisa e filtros de livros
+// ====================================
+
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("bookSearch");
+    const bookGrid = document.getElementById("bookGrid");
+    const filterButtons = document.querySelectorAll(".library-filter");
+    const noResults = document.getElementById("bookNoResults");
+
+    if (!searchInput || !bookGrid || filterButtons.length === 0) {
+        return;
+    }
+
+    const books = Array.from(
+        bookGrid.querySelectorAll(".book-card")
+    );
+
+    let selectedCategory = "todos";
+
+    function filterBooks() {
+        const searchText = searchInput.value
+            .trim()
+            .toLocaleLowerCase("pt-PT");
+
+        let visibleBooks = 0;
+
+        books.forEach(function (book) {
+            const category = (
+                book.getAttribute("data-category") || ""
+            ).toLowerCase();
+
+            const text = (
+                (book.getAttribute("data-search") || "") +
+                " " +
+                book.textContent
+            ).toLocaleLowerCase("pt-PT");
+
+            const matchesCategory =
+                selectedCategory === "todos" ||
+                category === selectedCategory;
+
+            const matchesSearch = text.includes(searchText);
+
+            const show = matchesCategory && matchesSearch;
+
+            book.hidden = !show;
+
+            if (show) {
+                visibleBooks++;
+            }
+        });
+
+        if (noResults) {
+            noResults.hidden = visibleBooks > 0;
+        }
+    }
+
+    filterButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            selectedCategory = (
+                button.getAttribute("data-category") || "todos"
+            ).toLowerCase();
+
+            filterButtons.forEach(function (item) {
+                const active = item === button;
+
+                item.classList.toggle("active", active);
+                item.setAttribute("aria-pressed", String(active));
+            });
+
+            filterBooks();
+        });
+    });
+
+    searchInput.addEventListener("input", filterBooks);
+
+    filterBooks();
+});
