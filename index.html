@@ -204,61 +204,344 @@
 
         <div class="book-cover cover-civil">
           <span>UNIJ · BIBLIOTECA JURÍDICA</span>
-          <strong>DIREITO<br>CIVIL</strong>
-          <small>ESTUDOS JURÍDICOS</small>
+<!-- BIBLIOTECA DIGITAL UNIJ -->
+<section class="section library-section" id="biblioteca">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <div>
+                <div class="eyebrow">
+                    <span class="eyebrow-line"></span>
+                    CONHECIMENTO AO SEU ALCANCE
+                </div>
+
+                <h2>Biblioteca Digital <em>UniJ.</em></h2>
+
+                <p>
+                    Consulte livros, códigos, legislação e materiais
+                    de estudo jurídico, organizados por áreas do Direito.
+                </p>
+            </div>
         </div>
 
-        <div class="book-info">
-          <span class="book-category">DIREITO CIVIL</span>
-          <h3>Direito Civil</h3>
-          <p>Conteúdos para aprofundamento académico.</p>
-
-          <a class="book-download"
-             href="./livros/bancario.pdf"
-             download>
-            Descarregar PDF <span>↓</span>
-          </a>
-        </div>
-      </article>
-
-      <!-- LIVRO 3 -->
-      <article class="book-card"
-               data-category="constitucional"
-               data-search="constituição angola direito constitucional direitos fundamentais">
-
-        <div class="book-cover cover-constitucional">
-          <span>UNIJ · BIBLIOTECA JURÍDICA</span>
-          <strong>DIREITO<br>CONSTITUCIONAL</strong>
-          <small>ANGOLA</small>
+        <!-- PESQUISA -->
+        <div class="library-search">
+            <input
+                type="search"
+                id="bookSearch"
+                placeholder="Pesquisar livros ou áreas do Direito..."
+                aria-label="Pesquisar livros"
+            >
         </div>
 
-        <div class="book-info">
-          <span class="book-category">CONSTITUCIONAL</span>
-          <h3>Direito Constitucional</h3>
-          <p>Constituição, direitos fundamentais e Estado.</p>
+        <!-- FILTROS -->
+        <div class="library-filters" role="group"
+             aria-label="Filtrar livros por categoria">
 
-          <a class="book-download"
-             href="./livros/Recursos.pdf"
-             download>
-            Descarregar PDF <span>↓</span>
-          </a>
+            <button type="button"
+                    class="library-filter active"
+                    data-category="todos"
+                    aria-pressed="true">
+                Todos
+            </button>
+
+            <button type="button"
+                    class="library-filter"
+                    data-category="penal"
+                    aria-pressed="false">
+                Direito Penal
+            </button>
+
+            <button type="button"
+                    class="library-filter"
+                    data-category="civil"
+                    aria-pressed="false">
+                Direito Civil
+            </button>
+
+            <button type="button"
+                    class="library-filter"
+                    data-category="constitucional"
+                    aria-pressed="false">
+                Constitucional
+            </button>
+
+            <button type="button"
+                    class="library-filter"
+                    data-category="academico"
+                    aria-pressed="false">
+                Académico
+            </button>
+
         </div>
-      </article>
 
-      <!-- MENSAGEM QUANDO NÃO HÁ RESULTADOS -->
-      <p id="bookNoResults" hidden>
-        Não foram encontrados livros com esses termos.
-      </p>
+        <!-- PRIMEIROS 10 LIVROS -->
+        <div class="book-grid" id="bookGrid">
+
+            <!-- LIVRO 1 -->
+            <article class="book-card"
+                     data-category="penal"
+                     data-search="direito penal código penal legislação angolana">
+
+                <div class="book-cover cover-penal">
+                    <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+                    <strong>DIREITO<br>PENAL</strong>
+                    <small>ESTUDOS JURÍDICOS</small>
+                </div>
+
+                <div class="book-info">
+                    <span class="book-category">DIREITO PENAL</span>
+                    <h3>Direito Penal</h3>
+                    <p>Material de estudo e consulta jurídica.</p>
+
+                    <a class="book-download"
+                       href="./livros/direito-penal.pdf"
+                       download>
+                        Descarregar PDF <span>↓</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- LIVRO 2 -->
+            <article class="book-card"
+                     data-category="civil"
+                     data-search="direito civil código civil obrigações contratos">
+
+                <div class="book-cover cover-civil">
+                    <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+                    <strong>DIREITO<br>CIVIL</strong>
+                    <small>ESTUDOS JURÍDICOS</small>
+                </div>
+
+                <div class="book-info">
+                    <span class="book-category">DIREITO CIVIL</span>
+                    <h3>Direito Civil</h3>
+                    <p>Conteúdos para aprofundamento académico.</p>
+
+                    <a class="book-download"
+                       href="./livros/bancario.pdf"
+                       download>
+                        Descarregar PDF <span>↓</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- LIVRO 3 -->
+            <article class="book-card"
+                     data-category="constitucional"
+                     data-search="constituição angola direito constitucional direitos fundamentais">
+
+                <div class="book-cover cover-constitucional">
+                    <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+                    <strong>DIREITO<br>CONSTITUCIONAL</strong>
+                    <small>ANGOLA</small>
+                </div>
+
+                <div class="book-info">
+                    <span class="book-category">CONSTITUCIONAL</span>
+                    <h3>Direito Constitucional</h3>
+                    <p>Constituição, direitos fundamentais e Estado.</p>
+
+                    <a class="book-download"
+                       href="./livros/Recursos.pdf"
+                       download>
+                        Descarregar PDF <span>↓</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- LIVRO 4: EXEMPLO -->
+            <article class="book-card"
+                     data-category="penal"
+                     data-search="código penal angolano legislação crimes penas">
+
+                <div class="book-cover cover-penal">
+                    <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+                    <strong>CÓDIGO<br>PENAL</strong>
+                    <small>LEGISLAÇÃO</small>
+                </div>
+
+                <div class="book-info">
+                    <span class="book-category">DIREITO PENAL</span>
+                    <h3>Código Penal</h3>
+                    <p>Legislação penal para consulta e estudo.</p>
+
+                    <a class="book-download"
+                       href="./livros/codigo-penal.pdf"
+                       download>
+                        Descarregar PDF <span>↓</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- LIVRO 5: EXEMPLO -->
+            <article class="book-card"
+                     data-category="civil"
+                     data-search="direito das obrigações contratos responsabilidade civil">
+
+                <div class="book-cover cover-civil">
+                    <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+                    <strong>OBRIGAÇÕES</strong>
+                    <small>DIREITO CIVIL</small>
+                </div>
+
+                <div class="book-info">
+                    <span class="book-category">DIREITO CIVIL</span>
+                    <h3>Direito das Obrigações</h3>
+                    <p>Estudo dos contratos e das obrigações.</p>
+
+                    <a class="book-download"
+                       href="./livros/obrigacoes.pdf"
+                       download>
+                        Descarregar PDF <span>↓</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- LIVRO 6: EXEMPLO -->
+            <article class="book-card"
+                     data-category="academico"
+                     data-search="metodologia investigação científica trabalhos académicos bibliografia">
+
+                <div class="book-cover cover-academico">
+                    <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+                    <strong>INVESTIGAÇÃO</strong>
+                    <small>METODOLOGIA</small>
+                </div>
+
+                <div class="book-info">
+                    <span class="book-category">ACADÉMICO</span>
+                    <h3>Metodologia de Investigação</h3>
+                    <p>Orientações para trabalhos científicos.</p>
+
+                    <a class="book-download"
+                       href="./livros/metodologia.pdf"
+                       download>
+                        Descarregar PDF <span>↓</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- LIVRO 7: EXEMPLO -->
+            <article class="book-card"
+                     data-category="constitucional"
+                     data-search="constituição da república de angola direitos liberdades garantias">
+
+                <div class="book-cover cover-constitucional">
+                    <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+                    <strong>CONSTITUIÇÃO</strong>
+                    <small>REPÚBLICA DE ANGOLA</small>
+                </div>
+
+                <div class="book-info">
+                    <span class="book-category">CONSTITUCIONAL</span>
+                    <h3>Constituição da República</h3>
+                    <p>Consulta da Constituição e dos direitos fundamentais.</p>
+
+                    <a class="book-download"
+                       href="./livros/constituicao.pdf"
+                       download>
+                        Descarregar PDF <span>↓</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- LIVRO 8: EXEMPLO -->
+            <article class="book-card"
+                     data-category="penal"
+                     data-search="processo penal investigação criminal procedimento penal">
+
+                <div class="book-cover cover-penal">
+                    <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+                    <strong>PROCESSO<br>PENAL</strong>
+                    <small>ESTUDOS JURÍDICOS</small>
+                </div>
+
+                <div class="book-info">
+                    <span class="book-category">DIREITO PENAL</span>
+                    <h3>Processo Penal</h3>
+                    <p>Material de consulta sobre o processo penal.</p>
+
+                    <a class="book-download"
+                       href="./livros/processo-penal.pdf"
+                       download>
+                        Descarregar PDF <span>↓</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- LIVRO 9: EXEMPLO -->
+            <article class="book-card"
+                     data-category="civil"
+                     data-search="direito da família casamento filiação família">
+
+                <div class="book-cover cover-civil">
+                    <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+                    <strong>DIREITO<br>DA FAMÍLIA</strong>
+                    <small>ESTUDOS JURÍDICOS</small>
+                </div>
+
+                <div class="book-info">
+                    <span class="book-category">DIREITO CIVIL</span>
+                    <h3>Direito da Família</h3>
+                    <p>Matérias introdutórias sobre as relações familiares.</p>
+
+                    <a class="book-download"
+                       href="./livros/direito-familia.pdf"
+                       download>
+                        Descarregar PDF <span>↓</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- LIVRO 10: EXEMPLO -->
+            <article class="book-card"
+                     data-category="academico"
+                     data-search="redação jurídica escrita jurídica linguagem jurídica">
+
+                <div class="book-cover cover-academico">
+                    <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+                    <strong>ESCRITA<br>JURÍDICA</strong>
+                    <small>FORMAÇÃO ACADÉMICA</small>
+                </div>
+
+                <div class="book-info">
+                    <span class="book-category">ACADÉMICO</span>
+                    <h3>Redacção Jurídica</h3>
+                    <p>Orientações para melhorar a escrita jurídica.</p>
+
+                    <a class="book-download"
+                       href="./livros/redacao-juridica.pdf"
+                       download>
+                        Descarregar PDF <span>↓</span>
+                    </a>
+                </div>
+            </article>
+
+            <p id="bookNoResults" hidden>
+                Não foram encontrados livros com esses termos.
+            </p>
+
+        </div>
+
+        <!-- ACESSO À ESTANTE COMPLETA -->
+        <div class="library-more">
+            <p>Procura mais obras? Explore a colecção completa da UniJ.</p>
+
+            <a href="./estante.html" class="button button-red">
+                IR PARA A ESTANTE DE LIVROS <span>→</span>
+            </a>
+        </div>
+
+        <p class="library-note">
+            Os materiais disponibilizados destinam-se ao estudo e à
+            investigação. Respeite os direitos de autor.
+        </p>
 
     </div>
-
-    <p class="library-note">
-      Os materiais disponibilizados devem ser utilizados para fins
-      de estudo e investigação, respeitando os direitos de autor.
-    </p>
-
-  </div>
 </section>
+<!-- FIM DA BIBLIOTECA DIGITAL UNIJ -->
 <!-- FIM DA BIBLIOTECA DIGITAL UNIJ -->
     <section class="quote-band">
       <div class="container quote-inner"><span class="quote-mark">“</span><blockquote>Uma sociedade que conhece os seus direitos está mais preparada para defender a justiça.</blockquote><span class="quote-credit">PRINCÍPIO EDITORIAL UNIJ</span></div>
