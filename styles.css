@@ -14,3 +14,193 @@
 @media(max-width:780px){.container{width:min(100% - 32px,600px)}.topline-inner{min-height:32px}.topline-inner>span{font-size:9px}.top-social{gap:11px}.top-social a{font-size:9px}.site-header{height:70px}.brand img{width:42px;height:42px}.brand-copy strong{font-size:26px}.menu-toggle{display:block;cursor:pointer}.main-nav{display:none;position:absolute;top:70px;left:0;right:0;background:#fff;padding:10px 22px 22px;box-shadow:0 15px 25px #0001;flex-direction:column;align-items:stretch;gap:0;border-top:1px solid #eee}.main-nav.open{display:flex}.nav-link{height:auto;padding:13px 0;border-bottom:1px solid #eee}.nav-link:after{display:none}.nav-cta{text-align:center;margin-top:14px;padding:13px}.hero-grid{grid-template-columns:1fr;gap:20px;padding-top:55px;padding-bottom:45px}.hero-copy{max-width:100%}.hero h1{font-size:49px;max-width:500px}.hero-copy>p{font-size:13px}.hero-visual{min-height:280px;margin-top:10px}.hero-logo-frame{width:min(320px,80%)}.hero-stamp{right:8%;top:8px;width:70px;height:70px}.hero-caption{right:6%;bottom:0}.hero-bottom-inner{font-size:8px;gap:10px}.bottom-rule{width:25px}.quick-grid{grid-template-columns:1fr}.quick-grid>a{border-left:1px solid var(--line);border-bottom:1px solid var(--line);padding:15px 17px}.section{padding:65px 0}.section-heading{display:block;margin-bottom:25px}.section-heading .text-link{display:inline-block;margin-top:20px}.section h2{font-size:37px}.article-tools{align-items:stretch;flex-direction:column}.search-box{width:100%}.filter-list{gap:6px}.filter-chip{padding:8px 10px}.article-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.article-art{height:135px;padding:12px}.art-label{font-size:7px;letter-spacing:1px}.art-bottom{left:12px;right:12px;bottom:10px;font-size:8px}.art-bottom span{font-size:7px}.article-body{padding:14px}.article-meta{font-size:7px;gap:5px;flex-wrap:wrap}.article-body h3{font-size:18px}.article-body p{font-size:11px;min-height:unset}.read-more{padding-top:13px}.quote-inner{grid-template-columns:30px 1fr;gap:10px}.quote-mark{font-size:65px}.quote-credit{grid-column:2;margin-top:8px}.service-grid{grid-template-columns:1fr;gap:13px}.service-card{min-height:0;padding:24px}.service-card p{margin-bottom:17px}.academy-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:35px}.academy-panel{min-height:330px}.about-logo{max-width:430px;margin:auto}.contact-section{padding:65px 0}.contact-form{padding:23px 18px}.footer-main{flex-wrap:wrap;gap:15px}.footer-main>p{width:100%;order:3;margin:0}.footer-bottom{flex-direction:column;gap:7px}.whatsapp-float{right:12px;bottom:12px;padding:11px}.whatsapp-float small{display:none}}
 @media(max-width:390px){.topline-inner>span{max-width:125px}.top-social{gap:8px}.hero h1{font-size:42px}.hero-actions{gap:8px}.button{padding:12px;font-size:11px;gap:12px}.article-grid{grid-template-columns:1fr}.article-art{height:170px}.article-body h3{font-size:21px}.form-row{grid-template-columns:1fr;gap:0}.values-row{gap:24px}.hero-bottom-inner{letter-spacing:1px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+/* BIBLIOTECA DIGITAL UNIJ */
+
+.library-section {
+  background: #f8f7f5;
+}
+
+.library-search {
+  margin: 28px 0 18px;
+}
+
+.library-search input {
+  width: 100%;
+  padding: 15px 18px;
+  border: 1px solid #dedbd7;
+  border-radius: 5px;
+  background: #fff;
+  font: inherit;
+  outline-color: #b5122b;
+}
+
+.library-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.library-filter {
+  padding: 10px 16px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+}
+
+.library-filter.active,
+.library-filter:hover {
+  background: #b5122b;
+  border-color: #b5122b;
+  color: #fff;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.book-card {
+  overflow: hidden;
+  border: 1px solid #e8e4df;
+  background: #fff;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .08);
+}
+
+.book-cover {
+  min-height: 230px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.cover-penal {
+  background: linear-gradient(145deg, #171719, #4a101a);
+}
+
+.cover-civil {
+  background: linear-gradient(145deg, #713020, #b76b42);
+}
+
+.cover-constitucional {
+  background: linear-gradient(145deg, #172b45, #385d79);
+}
+
+.book-cover span {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+.book-cover strong {
+  font-family: Georgia, serif;
+  font-size: 27px;
+  line-height: 1.15;
+}
+
+.book-cover small {
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.book-info {
+  padding: 22px;
+}
+
+.book-category {
+  color: #b5122b;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.book-info h3 {
+  margin: 12px 0 8px;
+  font-size: 19px;
+}
+
+.book-info p {
+  min-height: 44px;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.book-download {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 13px 15px;
+  background: #b5122b;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.book-download:hover {
+  background: #8e0d20;
+}
+
+.library-note {
+  margin-top: 30px;
+  color: #777;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+#bookNoResults {
+  grid-column: 1 / -1;
+  color: #666;
+}
+
+@media (max-width: 760px) {
+  .book-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .book-cover {
+    min-height: 190px;
+    padding: 16px 12px;
+  }
+
+  .book-cover strong {
+    font-size: 21px;
+  }
+
+  .book-info {
+    padding: 14px;
+  }
+
+  .book-info h3 {
+    font-size: 16px;
+  }
+
+  .book-info p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 420px) {
+  .book-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .book-cover {
+    min-height: 220px;
+  }
+}
