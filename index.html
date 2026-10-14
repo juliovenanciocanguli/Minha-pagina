@@ -118,7 +118,144 @@
         <p class="content-note">Os conteúdos apresentados são introdutórios e devem ser confirmados com a legislação em vigor e fontes oficiais.</p>
       </div>
     </section>
+<!-- BIBLIOTECA DIGITAL UNIJ -->
+<section class="section library-section" id="biblioteca">
+  <div class="container">
 
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">
+          <span class="eyebrow-line"></span>
+          CONHECIMENTO AO SEU ALCANCE
+        </div>
+
+        <h2>Biblioteca Digital <em>UniJ.</em></h2>
+
+        <p>
+          Consulte e descarregue livros, códigos, legislação
+          e materiais de estudo jurídico.
+        </p>
+      </div>
+    </div>
+
+    <!-- PESQUISA DE LIVROS -->
+    <div class="library-search">
+      <input
+        type="search"
+        id="bookSearch"
+        placeholder="Pesquisar livros ou áreas do Direito..."
+        aria-label="Pesquisar livros"
+      >
+    </div>
+
+    <!-- CATEGORIAS -->
+    <div class="library-filters">
+      <button type="button" class="library-filter active"
+              data-category="todos">Todos</button>
+
+      <button type="button" class="library-filter"
+              data-category="penal">Direito Penal</button>
+
+      <button type="button" class="library-filter"
+              data-category="civil">Direito Civil</button>
+
+      <button type="button" class="library-filter"
+              data-category="constitucional">Constitucional</button>
+
+      <button type="button" class="library-filter"
+              data-category="academico">Académico</button>
+    </div>
+
+    <!-- LIVROS -->
+    <div class="book-grid" id="bookGrid">
+
+      <!-- LIVRO 1 -->
+      <article class="book-card"
+               data-category="penal"
+               data-search="direito penal código penal legislação angolana">
+
+        <div class="book-cover cover-penal">
+          <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+          <strong>DIREITO<br>PENAL</strong>
+          <small>ESTUDOS JURÍDICOS</small>
+        </div>
+
+        <div class="book-info">
+          <span class="book-category">DIREITO PENAL</span>
+          <h3>Direito Penal</h3>
+          <p>Material de estudo e consulta jurídica.</p>
+
+          <a class="book-download"
+             href="./livros/direito-penal.pdf"
+             download>
+            Descarregar PDF <span>↓</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- LIVRO 2 -->
+      <article class="book-card"
+               data-category="civil"
+               data-search="direito civil código civil obrigações contratos">
+
+        <div class="book-cover cover-civil">
+          <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+          <strong>DIREITO<br>CIVIL</strong>
+          <small>ESTUDOS JURÍDICOS</small>
+        </div>
+
+        <div class="book-info">
+          <span class="book-category">DIREITO CIVIL</span>
+          <h3>Direito Civil</h3>
+          <p>Conteúdos para aprofundamento académico.</p>
+
+          <a class="book-download"
+             href="./livros/bancario.pdf"
+             download>
+            Descarregar PDF <span>↓</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- LIVRO 3 -->
+      <article class="book-card"
+               data-category="constitucional"
+               data-search="constituição angola direito constitucional direitos fundamentais">
+
+        <div class="book-cover cover-constitucional">
+          <span>UNIJ · BIBLIOTECA JURÍDICA</span>
+          <strong>DIREITO<br>CONSTITUCIONAL</strong>
+          <small>ANGOLA</small>
+        </div>
+
+        <div class="book-info">
+          <span class="book-category">CONSTITUCIONAL</span>
+          <h3>Direito Constitucional</h3>
+          <p>Constituição, direitos fundamentais e Estado.</p>
+
+          <a class="book-download"
+             href="./livros/Recursos.pdf"
+             download>
+            Descarregar PDF <span>↓</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- MENSAGEM QUANDO NÃO HÁ RESULTADOS -->
+      <p id="bookNoResults" hidden>
+        Não foram encontrados livros com esses termos.
+      </p>
+
+    </div>
+
+    <p class="library-note">
+      Os materiais disponibilizados devem ser utilizados para fins
+      de estudo e investigação, respeitando os direitos de autor.
+    </p>
+
+  </div>
+</section>
+<!-- FIM DA BIBLIOTECA DIGITAL UNIJ -->
     <section class="quote-band">
       <div class="container quote-inner"><span class="quote-mark">“</span><blockquote>Uma sociedade que conhece os seus direitos está mais preparada para defender a justiça.</blockquote><span class="quote-credit">PRINCÍPIO EDITORIAL UNIJ</span></div>
     </section>
